@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+    <head>
+        <title>Kannada Kali</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    </head>
+    <body>
+        <center>
+            
+            <h1>Welcome to Kannada Kali!</h1>
+            <h2>(Development)</h2>
+            <h2>Listen and Speak</h2>
+            <img src="{% static 'image/kan_landsc.jpg' %}" width=100 height=100/><br><br>
+
+            
+                <!-- <{{kan.kannada}}<br>> -->
+            
+            <br>
+            {% if not status %}
+            Listen to the below word:<br>
+            <br>
+            <audio controls>
+                    <source src="{{kandb.aud.url}}" type="audio/mpeg">
+            </audio>
+            <br><br>
+            
+            
+            Repeat the above word after pressing the following button: <br>
+            {% block content %}
+            
+            <form action="audio_listen" method='post'>
+                    {% csrf_token %}
+                    <input type = "hidden" name = "word" value ='{{kandb.kannada}}' />
+                    <!-- <input type="file" accept="audio/*;capture=microphone" name="inp_aud"> -->
+                    <br><br>
+                    <input type="submit" value="Test">
+            </form>
+            {% endblock %}
+            {% endif %}
+            
+
+            <h1>{{val}}</h1>
+            <h1>{{status}}</h1>
+            <h1>{{stat}}</h1>
+            {% if status %}
+            <form action="read_speak" method='get'>
+                <input type="submit" value="Next">
+            </form>
+            {% endif %}
+            </form>
+            
+
+    </center>
+
+    </body>
+</html>
+

@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+  <head>
+    <title>Kannada Kali</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <center>
+      <h1>Welcome to Kannada Kali!</h1>
+      <h2>(Development)</h2>
+      <h2>Listen and Write</h2>
+      <img
+        src="{% static 'image/kan_landsc.jpg' %}"
+        width="100"
+        height="100"
+      /><br /><br />
+
+      <!-- <{{kan.kannada}}<br>> -->
+
+      <br />
+       Listen to the below word:<br />
+      <br />
+      <audio controls>
+        <source src="{{kandb.aud.url}}" type="audio/mpeg" />
+      </audio>
+      <br /><br />
+
+      <br />
+      <center>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Upload" />
+        </form>
+      </center>
+      <br />
+    </center>
+  </body>
+</html>

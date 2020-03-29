@@ -1,0 +1,8 @@
+body {
+    background: white url("image/bodybg.jpg");
+    color: white;
+}
+
+#result	 {
+	font-size:30px;
+}
